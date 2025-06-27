@@ -1,18 +1,17 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { 
-  LayoutDashboard, 
-  Smartphone, 
-  Wifi, 
-  Zap, 
-  Tv, 
-  GraduationCap, 
-  Plane, 
-  Wallet, 
-  History, 
-  Users, 
+import {
+  LayoutDashboard,
+  Smartphone,
+  Wifi,
+  Zap,
+  Tv,
+  GraduationCap,
+  Plane,
+  Wallet,
+  History,
+  Users,
   MessageCircle,
-  Settings,
   Shield
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
@@ -47,7 +46,7 @@ const Sidebar: React.FC = () => {
           {menuItems.map((item, index) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path;
-            
+
             return (
               <motion.div
                 key={item.path}
@@ -57,11 +56,10 @@ const Sidebar: React.FC = () => {
               >
                 <Link
                   to={item.path}
-                  className={`flex items-center space-x-3 p-3 rounded-lg transition-all ${
-                    isActive
+                  className={`flex items-center space-x-3 p-3 rounded-lg transition-all ${isActive
                       ? 'bg-neon-gradient text-white shadow-lg'
                       : 'hover:bg-white/10 hover:transform hover:scale-105'
-                  }`}
+                    }`}
                 >
                   <Icon className="w-5 h-5" />
                   <span className="font-medium">{item.label}</span>
@@ -80,7 +78,7 @@ const Sidebar: React.FC = () => {
               {adminItems.map((item, index) => {
                 const Icon = item.icon;
                 const isActive = location.pathname === item.path;
-                
+
                 return (
                   <motion.div
                     key={item.path}
@@ -90,11 +88,10 @@ const Sidebar: React.FC = () => {
                   >
                     <Link
                       to={item.path}
-                      className={`flex items-center space-x-3 p-3 rounded-lg transition-all ${
-                        isActive
+                      className={`flex items-center space-x-3 p-3 rounded-lg transition-all ${isActive
                           ? 'bg-red-500 text-white shadow-lg'
                           : 'hover:bg-red-500/10 hover:text-red-500 hover:transform hover:scale-105'
-                      }`}
+                        }`}
                     >
                       <Icon className="w-5 h-5" />
                       <span className="font-medium">{item.label}</span>

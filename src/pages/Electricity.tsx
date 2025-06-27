@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Zap, CreditCard } from 'lucide-react';
+import { Zap } from 'lucide-react';
 import { useWallet } from '../contexts/WalletContext';
 import toast from 'react-hot-toast';
 
@@ -66,9 +66,9 @@ const Electricity: React.FC = () => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
+
       const success = debitWallet(paymentAmount, `${selectedProvider.toUpperCase()} Electricity Payment - ${meterNumber}`);
-      
+
       if (success) {
         toast.success('Electricity payment successful!');
         setMeterNumber('');
@@ -112,7 +112,7 @@ const Electricity: React.FC = () => {
           className="glass p-6 rounded-xl"
         >
           <h2 className="text-xl font-semibold mb-4">Pay Electricity Bill</h2>
-          
+
           {/* Provider Selection */}
           <div className="mb-6">
             <label className="block text-sm font-medium mb-3">Select Provider</label>
@@ -124,11 +124,10 @@ const Electricity: React.FC = () => {
                     setSelectedProvider(provider.id);
                     setCustomerName('');
                   }}
-                  className={`p-4 rounded-lg border-2 transition-all ${
-                    selectedProvider === provider.id
+                  className={`p-4 rounded-lg border-2 transition-all ${selectedProvider === provider.id
                       ? 'border-neon-blue bg-neon-blue/10'
                       : 'border-white/20 hover:border-white/40'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center space-x-2">
                     <span className="text-2xl">{provider.logo}</span>
@@ -145,21 +144,19 @@ const Electricity: React.FC = () => {
             <div className="flex space-x-4">
               <button
                 onClick={() => setMeterType('prepaid')}
-                className={`px-4 py-2 rounded-lg border-2 transition-all ${
-                  meterType === 'prepaid'
+                className={`px-4 py-2 rounded-lg border-2 transition-all ${meterType === 'prepaid'
                     ? 'border-neon-blue bg-neon-blue/10'
                     : 'border-white/20 hover:border-white/40'
-                }`}
+                  }`}
               >
                 Prepaid
               </button>
               <button
                 onClick={() => setMeterType('postpaid')}
-                className={`px-4 py-2 rounded-lg border-2 transition-all ${
-                  meterType === 'postpaid'
+                className={`px-4 py-2 rounded-lg border-2 transition-all ${meterType === 'postpaid'
                     ? 'border-neon-blue bg-neon-blue/10'
                     : 'border-white/20 hover:border-white/40'
-                }`}
+                  }`}
               >
                 Postpaid
               </button>

@@ -1,18 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  TrendingUp, 
-  TrendingDown, 
-  Wallet, 
+import {
+  TrendingUp,
+  TrendingDown,
+  Wallet,
   Activity,
   Users,
-  BarChart3,
   ArrowUpRight,
   ArrowDownRight
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { useWallet } from '../contexts/WalletContext';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
 const Dashboard: React.FC = () => {
   const { user } = useAuth();
@@ -97,9 +96,8 @@ const Dashboard: React.FC = () => {
                 <div className="p-1.5 sm:p-2 bg-neon-gradient rounded-lg">
                   <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <div className={`flex items-center space-x-1 text-xs sm:text-sm ${
-                  stat.changeType === 'positive' ? 'text-green-500' : 'text-red-500'
-                }`}>
+                <div className={`flex items-center space-x-1 text-xs sm:text-sm ${stat.changeType === 'positive' ? 'text-green-500' : 'text-red-500'
+                  }`}>
                   {stat.changeType === 'positive' ? (
                     <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4" />
                   ) : (
@@ -133,7 +131,7 @@ const Dashboard: React.FC = () => {
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
                 <XAxis dataKey="name" stroke="rgba(255,255,255,0.6)" fontSize={12} />
                 <YAxis stroke="rgba(255,255,255,0.6)" fontSize={12} />
-                <Tooltip 
+                <Tooltip
                   contentStyle={{
                     backgroundColor: 'rgba(0, 0, 0, 0.8)',
                     border: '1px solid rgba(255,255,255,0.2)',
@@ -171,7 +169,7 @@ const Dashboard: React.FC = () => {
                   outerRadius={window.innerWidth < 640 ? 60 : 80}
                   dataKey="value"
                   label={({ name, value }) => `${name}: ${value}%`}
-                  labelStyle={{ fontSize: window.innerWidth < 640 ? '10px' : '12px' }}
+                // labelStyle={{ fontSize: window.innerWidth < 640 ? '10px' : '12px' }}
                 >
                   {pieData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
@@ -201,9 +199,8 @@ const Dashboard: React.FC = () => {
           {transactions.slice(0, 5).map((transaction) => (
             <div key={transaction.id} className="flex items-center justify-between p-3 hover:bg-white/5 rounded-lg transition-colors">
               <div className="flex items-center space-x-3">
-                <div className={`p-2 rounded-lg ${
-                  transaction.type === 'credit' ? 'bg-green-500/20 text-green-500' : 'bg-red-500/20 text-red-500'
-                }`}>
+                <div className={`p-2 rounded-lg ${transaction.type === 'credit' ? 'bg-green-500/20 text-green-500' : 'bg-red-500/20 text-red-500'
+                  }`}>
                   {transaction.type === 'credit' ? (
                     <TrendingUp className="w-4 h-4" />
                   ) : (
@@ -216,15 +213,13 @@ const Dashboard: React.FC = () => {
                 </div>
               </div>
               <div className="text-right">
-                <p className={`font-semibold text-sm sm:text-base ${
-                  transaction.type === 'credit' ? 'text-green-500' : 'text-red-500'
-                }`}>
+                <p className={`font-semibold text-sm sm:text-base ${transaction.type === 'credit' ? 'text-green-500' : 'text-red-500'
+                  }`}>
                   {transaction.type === 'credit' ? '+' : '-'}₦{transaction.amount.toLocaleString()}
                 </p>
-                <p className={`text-xs ${
-                  transaction.status === 'success' ? 'text-green-500' : 
+                <p className={`text-xs ${transaction.status === 'success' ? 'text-green-500' :
                   transaction.status === 'pending' ? 'text-yellow-500' : 'text-red-500'
-                }`}>
+                  }`}>
                   {transaction.status}
                 </p>
               </div>

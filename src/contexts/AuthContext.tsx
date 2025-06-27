@@ -72,7 +72,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return false;
   };
 
-  const register = async (name: string, email: string, phone: string, password: string): Promise<boolean> => {
+  const register = async (name: string, email: string, phone: string): Promise<boolean> => {
     // Mock registration
     const newUser: User = {
       id: Date.now().toString(),
@@ -83,7 +83,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       verified: false,
       createdAt: new Date().toISOString(),
     };
-    
+
     setUser(newUser);
     localStorage.setItem('user', JSON.stringify(newUser));
     return true;

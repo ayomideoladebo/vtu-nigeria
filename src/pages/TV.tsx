@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Tv, CreditCard } from 'lucide-react';
+import { Tv } from 'lucide-react';
 import { useWallet } from '../contexts/WalletContext';
 import toast from 'react-hot-toast';
 
@@ -91,9 +91,9 @@ const TV: React.FC = () => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
+
       const success = debitWallet(plan.price, `${selectedProvider.toUpperCase()} ${plan.name} Subscription - ${smartCardNumber}`);
-      
+
       if (success) {
         toast.success('Subscription successful!');
         setSmartCardNumber('');
@@ -110,7 +110,7 @@ const TV: React.FC = () => {
     }
   };
 
-  const selectedPlanData = selectedProvider && selectedPlan ? 
+  const selectedPlanData = selectedProvider && selectedPlan ?
     subscriptionPlans[selectedProvider as keyof typeof subscriptionPlans]?.find(p => p.id === selectedPlan) : null;
 
   return (
@@ -140,7 +140,7 @@ const TV: React.FC = () => {
           className="glass p-6 rounded-xl"
         >
           <h2 className="text-xl font-semibold mb-4">Subscribe to TV/Cable</h2>
-          
+
           {/* Provider Selection */}
           <div className="mb-6">
             <label className="block text-sm font-medium mb-3">Select Provider</label>
@@ -153,11 +153,10 @@ const TV: React.FC = () => {
                     setSelectedPlan('');
                     setCustomerName('');
                   }}
-                  className={`p-4 rounded-lg border-2 transition-all ${
-                    selectedProvider === provider.id
+                  className={`p-4 rounded-lg border-2 transition-all ${selectedProvider === provider.id
                       ? 'border-neon-blue bg-neon-blue/10'
                       : 'border-white/20 hover:border-white/40'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center space-x-2">
                     <span className="text-2xl">{provider.logo}</span>
@@ -207,11 +206,10 @@ const TV: React.FC = () => {
                   <button
                     key={plan.id}
                     onClick={() => setSelectedPlan(plan.id)}
-                    className={`w-full p-4 rounded-lg border-2 text-left transition-all ${
-                      selectedPlan === plan.id
+                    className={`w-full p-4 rounded-lg border-2 text-left transition-all ${selectedPlan === plan.id
                         ? 'border-neon-blue bg-neon-blue/10'
                         : 'border-white/20 hover:border-white/40'
-                    }`}
+                      }`}
                   >
                     <div className="flex justify-between items-center">
                       <div>

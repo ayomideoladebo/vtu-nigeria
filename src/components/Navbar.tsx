@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Moon, Sun, User, LogOut, Wallet, Bell, Menu, X, Home, LayoutDashboard, Smartphone, Wifi, Zap, Tv, GraduationCap, Plane, History, Users, MessageCircle, Settings, Shield } from 'lucide-react';
+import { Moon, Sun, User, LogOut, Wallet, Bell, Menu, X, Home, LayoutDashboard, Smartphone, Wifi, Zap, Tv, GraduationCap, Plane, History, Users, MessageCircle, Shield } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useWallet } from '../contexts/WalletContext';
@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
                     ₦{balance.toLocaleString()}
                   </span>
                 </div>
-                
+
                 <button className="relative p-2 rounded-lg hover:bg-white/10 transition-colors">
                   <Bell className="w-5 h-5" />
                   <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
@@ -150,11 +150,10 @@ const Navbar: React.FC = () => {
                         key={item.path}
                         to={item.path}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`flex items-center space-x-3 w-full p-3 rounded-lg transition-all ${
-                          isActive
+                        className={`flex items-center space-x-3 w-full p-3 rounded-lg transition-all ${isActive
                             ? 'bg-neon-gradient text-white'
                             : 'hover:bg-white/10'
-                        }`}
+                          }`}
                       >
                         <Icon className="w-5 h-5" />
                         <span>{item.label}</span>
@@ -173,11 +172,10 @@ const Navbar: React.FC = () => {
                             key={item.path}
                             to={item.path}
                             onClick={() => setIsMenuOpen(false)}
-                            className={`flex items-center space-x-3 w-full p-3 rounded-lg transition-all ${
-                              isActive
+                            className={`flex items-center space-x-3 w-full p-3 rounded-lg transition-all ${isActive
                                 ? 'bg-red-500 text-white'
                                 : 'hover:bg-red-500/10 hover:text-red-500'
-                            }`}
+                              }`}
                           >
                             <Icon className="w-5 h-5" />
                             <span>{item.label}</span>
@@ -188,7 +186,7 @@ const Navbar: React.FC = () => {
                   )}
                 </div>
               )}
-              
+
               <button
                 onClick={toggleTheme}
                 className="flex items-center space-x-2 w-full p-2 rounded-lg hover:bg-white/10 transition-colors"
